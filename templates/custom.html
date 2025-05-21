@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom 3D Order</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         canvas {
             border: 1px solid black;
@@ -13,18 +18,24 @@
 <body>
     <h1>Draw Your Idea</h1>
 
-    <canvas id="canvas" width="400" height="400"></canvas>
+    <div id="canvas-wrapper">
+        <canvas id="canvas" width="400" height="400"></canvas>
+    </div>
+
     <br>
     <button onclick="undoLast()">Delete Last</button>
     <button onclick="clearCanvas()">Delete All</button>
-
+    
     <div>
-      
+
+    <form id="submitForm" enctype="multipart/form-data">
         <label for="description">description:</label><br>
         <textarea id="description" rows="4" cols="40"></textarea><br><br>
-
-        <button onclick="saveData()">Submit</button>
-    </div>
+        <label for="file">Izberi datoteko:</label><br>
+        <input type="file" id="file" name="file" accept="image/*"><br><br>
+        <img id="preview" src="" style="display:none; max-width:300px;"><br>
+        <button type="submit">Submit</button>
+    </form>
 
     <script>
         const canvas = document.getElementById("canvas");
@@ -110,6 +121,43 @@
                     console.log({ imageData, width, height, description});
                     alert("Data collected (next step: send to server)");
                 }
+        document.getElementById("file").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById("preview");
+            
+            if (file && file.type.startsWith("image/")) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = "none";
+            }
+        });
+        document.getElementById("submitForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const formData = new FormData();
+    const fileInput = document.getElementById("file");
+    if (fileInput.files.length > 0) {
+        formData.append("file", fileInput.files[0]);
+    }
+    formData.append("description", document.getElementById("description").value);
+    formData.append("canvas_image", canvas.toDataURL());
+
+    fetch("/submit", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+    })
+    .catch(error => {
+        alert("Error: " + error);
+    });
+});
     </script>
 </body>
 </html>

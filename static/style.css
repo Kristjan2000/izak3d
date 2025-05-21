@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    padding:0;
+    border: 0.5px solid lightblue;
+}
+body{
+    background-color: aquamarine;
+    font-family: "Roboto", sans-serif;
+    padding-top: 20px;
+}
+
+#canvas-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+
+h1{
+    font-size: 50px;
+}
+
+.delete-all-button{
+    width: 75px;
+    height: 20px;
+    background-color: tomato;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    transition: 500ms;
+}
+.delete-all-button:hover{
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 800px) {
+    h1{
+        font-size: 10px;
+    }
+}
