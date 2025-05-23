@@ -29,6 +29,10 @@
     <div>
 
     <form id="submitForm" enctype="multipart/form-data">
+        <label for="email">Email:</lable><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="phone">Telefonska:</lable><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
         <label for="description">description:</label><br>
         <textarea id="description" rows="4" cols="40"></textarea><br><br>
         <label for="file">Izberi datoteko:</label><br>
@@ -138,6 +142,15 @@
         });
         document.getElementById("submitForm").addEventListener("submit", function(event) {
     event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    if (!email|| !phone ) {
+        alert("Prosim izpolni email in telefonsko številko da Vas lahko kontaktiramo.")
+        return;
+    }
+
     const formData = new FormData();
     const fileInput = document.getElementById("file");
     if (fileInput.files.length > 0) {
@@ -145,6 +158,8 @@
     }
     formData.append("description", document.getElementById("description").value);
     formData.append("canvas_image", canvas.toDataURL());
+    formData.append("email", document.getElementById("email").value);
+    formData.append("phone", document.getElementById("phone").value);
 
     fetch("/submit", {
         method: "POST",
