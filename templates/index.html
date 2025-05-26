@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dobrodošli</title>
+    <title>IzakPrint</title>
+    <link rel="icon" href="static/pics/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../static/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,12 +17,12 @@
 <body>
     <section class="hero">
         <div class="overlay">
-        <div id="naslov-glavni"> 
             <img src= "{{ url_for('static', filename='/pics/logo.png') }}" alt="Izak print logo" id="logo">
            
         </div>
         <div id="slogan">
             <p>Tvoje ideje, naša izvedba.</p>
+       
         <div id="podslogan">
             <p>
                 Profesionalno.<br>
@@ -48,6 +49,13 @@
                 <li>Hitra izvedba</li>
                 <li>Prilagajanje vašim željam</li>
             </ul>
+             </div>
+            <ul>
+                <li>Visola natančnost tiskanja z visoko kvalitetnimi tiskalniki</li>
+                <li>Hitra izvedba</li>
+                <li>Prilagajanje vašim željam</li>
+            </ul>
+            <img src="{{ url_for('static', filename='/pics/printerslika.png') }}" alt="Izak printer" id="printer">
         </section>
 
         <section class="pricing">

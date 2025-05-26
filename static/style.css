@@ -2,26 +2,32 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: 	#EADDCA;
+  outline: 1px solid red;
+
   
 }
 
-#naslov-glavni {
-  font-size: 3px;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #e0dada;
-}
+
 
 #podslogan {
     padding-top: 50px;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
+    font-size: 25px;
+}
+#printer {
+    width: 400px;
+    height: auto;
+
 }
 
 
 #slogan p {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
+
 }
 #slogan {
     display: flex;
@@ -83,8 +89,13 @@ th, td {
     padding-bottom: 30px;
 }
 #logo {
+    display: flex;
+    justify-content: center;
     height: 480px;
     width: 900px;
+    margin: auto;
+    
+    
 }
 #podnaslov-glavni {
     display:flex;
