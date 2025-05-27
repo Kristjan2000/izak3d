@@ -2,13 +2,40 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: 	#EADDCA;
-  outline: 1px solid red;
-
-  
+  background-color: 	#EADDCA; 
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #EADDCA;
+    margin: 0;
+    padding: 0;
+}
 
+header {
+    text-align: center;
+    padding: 40px 0 20px 0;
+}
+
+.parallax {
+    min-height: 50vh;
+    width: 100vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.parallax11 {
+    background-image: url('../static/pics/parallax11.jpg');
+}
+
+.parallax2 {
+    background-image: url('../static/pics/parallax2.jpg');
+}
 
 #podslogan {
     padding-top: 50px;
@@ -41,33 +68,58 @@
 }
 
 .button {
-    background-color: grey;
-    border-radius: 3px;
-    color:white;
-    text-decoration: none;
-    padding: 12px 24px;
+    background-color: #444;
     border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
     font-weight: bold;
     cursor: pointer;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background 0.2s;
 }
 .button:hover {
-    background-color: darkgray;
+    background-color: #666;
 }
 
 ul {
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    list-style: disc inside;
+    margin: 20px 0;
+    padding: 0;
+    font-size: 1.1rem;
 }
 
 table {
     margin: 0 auto;
     border-collapse: collapse;
+    width: 90%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.pricing h2 {
     text-align: center;
-    
+    margin-bottom: 24px;
+}
+
+.info {
+    padding-left: 32px;   /* or 24px for even closer */
+    max-width: 700px;
+    margin-bottom: 40px;  /* Only bottom margin, no auto centering */
+    text-align: left;
+}
+
+.info h2 {
+    text-align: left;
+    margin-bottom: 1px;
+}
+
+.info ul {
+    margin-left: 0;       /* Remove extra left margin from the list */
 }
 
 .pricing table {
@@ -77,9 +129,9 @@ table {
     
 }
 th, td {
-    padding: 12px 20px;
+    padding: 16px 12px;
     border: 1px solid #ccc;
-    padding-bottom: 30px;
+    font-size: 1rem;
 }
 
 #gumbek {
@@ -89,15 +141,11 @@ th, td {
     padding-bottom: 30px;
 }
 #logo {
-    display: flex;
-    justify-content: center;
-    height: 480px;
-    width: 900px;
-    margin: auto;
-    
-    
+    width: 480px;
+    height: auto;
+    margin-bottom: 20px;
 }
-#podnaslov-glavni {
+.podnaslov-glavni {
     display:flex;
     justify-content: center;
     border-radius: 5px;
@@ -109,13 +157,21 @@ th, td {
     text-align: center;
 }
 footer {
-    background-color: #222;
-    color: white;
+    background-color: #000;
+    color: #fff;
     text-align: center;
     padding: 20px 0;
-    font-size: 0.9rem;
-    font-family: 'Roboto';
+    font-size: 1rem;
+    margin-top: 40px;
 }
+footer p {
+    background: none !important;
+    color: #fff !important;
+    margin: 0;
+    padding: 0;
+}
+
+
 
 #blackborder {
     background-color: #222;
@@ -126,5 +182,140 @@ footer {
 
 
 @media screen and (max-width: 800px) {
+    body {
+        text-align: center;
+    }
+    .hero
+    .info
+    .pricing
+    footer,
+    .button
+    table {
+        width: 100%;
+        margin: 0 auto;
+    }
+#logo {
+    width: 90vw;
+    max-width: 480px;
+}
+#podnaslov-glavni {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+table {
+    font-size: 0.95rem;
+}
+.parallax {
+    min-height: 30vh;
+}
+}
 
+.parallax::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        #EADDCA 0%,
+        rgba(234,221,202,0.95) 3%,
+        rgba(234,221,202,0.0) 10%,
+        rgba(234,221,202,0.0) 90%,
+        rgba(234,221,202,0.95) 97%,
+        #EADDCA 100%
+    );
+}
+
+/* Custom page styling */
+
+.custom-container {
+    max-width: 480px;
+    margin: 40px auto 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    padding: 32px 24px;
+}
+
+.custom-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    margin-bottom: 24px;
+    color: #222;
+    padding-top: 32px; /* or adjust as needed */
+}
+
+#canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+#canvas {
+    background: #fff;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+
+form label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.05rem;
+    color: #222;
+    margin-top: 12px;
+    display: block;
+}
+
+form input, form textarea {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background: #f8f6f2;
+    color: #222;
+    box-sizing: border-box;
+}
+
+form button, button {
+    background-color: #444;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 8px 8px 0 0;
+    border: none;
+    transition: background 0.2s;
+}
+form button:hover, button:hover {
+    background-color: #666;
+}
+
+#preview {
+    display: block;
+    margin: 0 auto 16px auto;
+    max-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+
+@media screen and (max-width: 600px) {
+    .custom-container {
+        max-width: 98vw;
+        padding: 12px 2vw;
+    }
+    #canvas {
+        width: 95vw !important;
+        max-width: 350px;
+        height: auto;
+    }
 }

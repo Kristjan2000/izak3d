@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom 3D Order</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='pics/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="../static/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,30 +16,29 @@
     </style>
 </head>
 <body>
-    <h1>Draw Your Idea</h1>
+    <div class="custom-container">
+        <h1>CUSTOM 3D ORDER</h1>
 
-    <div id="canvas-wrapper">
-        <canvas id="canvas" width="400" height="400"></canvas>
+        <div id="canvas-wrapper">
+            <canvas id="canvas" width="400" height="400"></canvas>
+        </div>
+
+        <button onclick="undoLast()">Delete Last</button>
+        <button onclick="clearCanvas()">Delete All</button>
+
+        <form id="submitForm" enctype="multipart/form-data">
+            <label for="description">Opis:</label>
+            <textarea id="description" rows="4" cols="40"></textarea>
+            <label for="file">Izberi datoteko:</label>
+            <input type="file" id="file" name="file" accept="image/*">
+            <img id="preview" src="" style="display:none;">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Telefonska:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <button type="submit">Submit</button>
+        </form>
     </div>
-
-    <br>
-    <button onclick="undoLast()">Delete Last</button>
-    <button onclick="clearCanvas()">Delete All</button>
-    
-    <div>
-
-    <form id="submitForm" enctype="multipart/form-data">
-        <label for="email">Email:</lable><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="phone">Telefonska:</lable><br>
-        <input type="tel" id="phone" name="phone" required><br><br>
-        <label for="description">description:</label><br>
-        <textarea id="description" rows="4" cols="40"></textarea><br><br>
-        <label for="file">Izberi datoteko:</label><br>
-        <input type="file" id="file" name="file" accept="image/*"><br><br>
-        <img id="preview" src="" style="display:none; max-width:300px;"><br>
-        <button type="submit">Submit</button>
-    </form>
 
     <script>
         const canvas = document.getElementById("canvas");

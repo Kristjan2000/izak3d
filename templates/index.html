@@ -4,83 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IzakPrint</title>
-    <link rel="icon" href="static/pics/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" href="{{ url_for('static', filename='pics/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-<div id="blackborder">
-</div>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="hero">
-        <div class="overlay">
-            <img src= "{{ url_for('static', filename='/pics/logo.png') }}" alt="Izak print logo" id="logo">
-           
-        </div>
-        <div id="slogan">
-            <p>Tvoje ideje, naša izvedba.</p>
-       
-        <div id="podslogan">
-            <p>
-                Profesionalno.<br>
-                Hitro.<br>
-                Po meri.
-            </p>
-        </div>
-        </div>
-        </section>
-        <div id="podnaslov-glavni">
-        <section class="order" id="naročilo">
-            <h2>Naročilo po meri</h2>
-        </div>
-        <div id = "gumbek">
-            <a href="/custom" class="button">Oddaj naročilo</a>
-        </div>
-        </section>
-        <div id="podnaslov-glavni">
-        <section class="info">
-            <h2>Zakaj izbrati nas?</h2>
-        </div>
-            <ul>
-                <li>Visola natančnost tiskanja z visoko kvalitetnimi tiskalniki</li>
-                <li>Hitra izvedba</li>
-                <li>Prilagajanje vašim željam</li>
-            </ul>
-             </div>
-            <ul>
-                <li>Visola natančnost tiskanja z visoko kvalitetnimi tiskalniki</li>
-                <li>Hitra izvedba</li>
-                <li>Prilagajanje vašim željam</li>
-            </ul>
-            <img src="{{ url_for('static', filename='/pics/printerslika.png') }}" alt="Izak printer" id="printer">
-        </section>
+    <div id="blackborder"></div>
 
-        <section class="pricing">
-            <div id="podnaslov-glavni">
-            <h2>Cenik</h2>
-            </div>
-            <table>
-                <tr>
-                    <th>Storitev</th>
-                    <th>Cena</th>
-                </tr>
-                <tr>
-                    <td>3D tisk že pripravljenega modela</td>
-                    <td>1€ na uro + filament</td>
-                </tr>
-                <tr>
-                    <td>Priprava modela v SolidWorks + print želenega izdelka </td>
-                    <td>2€ - 5€ na uro za pripravo + cena filamenta</td>
-                </tr>
-            </table>
-        </section>
-        
-        <footer>
-            <p> izakprint.3d@gmail.com | 030 322 132</p>
-            <p> © 2025 IzakPrint </p>
-        </footer> 
+    <header>
+        <img src="{{ url_for('static', filename='pics/logo.png') }}" alt="Izak print logo" id="logo">
+        <h1 id="slogan">Tvoje ideje, naša izvedba.</h1>
+        <div id="podslogan">
+            <p>Profesionalno.<br>Hitro.<br>Po meri.</p>
+        </div>
+    </header>
+
+    <section class="parallax parallax11"></section>
+
+    <section class="order">
+        <h2>Naročilo po meri</h2>
+        <a href="/custom" class="button">Oddaj naročilo</a>
+    </section>
+
+    <section class="parallax parallax2"></section>
+
+    <section class="info">
+        <h2>Zakaj izbrati nas?</h2>
+        <ul>
+            <li>Visoka natančnost tiskanja z visoko kvalitetnimi tiskalniki</li>
+            <li>Hitra izvedba</li>
+            <li>Prilagajanje vašim željam</li>
+        </ul>
+    </section>
+
+    <section class="pricing">
+        <h2>Cenik</h2>
+        <table>
+            <tr>
+                <th>Storitev</th>
+                <th>Cena</th>
+            </tr>
+            <tr>
+                <td>3D tisk že pripravljenega modela</td>
+                <td>1€ na uro + filament</td>
+            </tr>
+            <tr>
+                <td>Priprava modela v SolidWorks + print želenega izdelka</td>
+                <td>2€ - 5€ na uro za pripravo + cena filamenta</td>
+            </tr>
+        </table>
+    </section>
+
+    <footer>
+        <p>izakprint.3d@gmail.com | 030 322 132</p>
+        <p>© 2025 IzakPrint</p>
+    </footer>
 </body>
 </html>
